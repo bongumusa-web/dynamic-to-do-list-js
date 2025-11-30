@@ -14,7 +14,7 @@ function addTask(){
     else{
         const listItem = document.createElement('li');
         const Remove = document.createElement('button');
-        Remove.className = 'remove-btn';
+        Remove.classList.add('remove-btn');
 
         //adding taks text
         listItem.textContent = taskText + ' ';
