@@ -7,7 +7,7 @@ const taskList = document.getElementById('task-list');
 let tasks = []; // store tasks
 
 // load saved tasks
-function loadTaskFromLocalStorage() {
+function loadTasks() {
     const stored = JSON.parse(localStorage.getItem('tasks') || "[]");
     tasks = stored;
 
@@ -16,7 +16,7 @@ function loadTaskFromLocalStorage() {
     });
 }
 
-// save tasks
+// save tasks to localStorage
 function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
@@ -59,15 +59,17 @@ function addTask() {
     }
 }
 
+// enter key adds task
 taskInput.addEventListener('keypress', function(event){
     if(event.key === 'Enter'){
         addTask();
     }
 });
 
+// button adds task
 addButton.addEventListener('click', addTask);
 
 // load saved tasks on page load
-loadTaskFromLocalStorage();
+loadTasks();
 
 });
